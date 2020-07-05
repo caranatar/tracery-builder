@@ -1,38 +1,192 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  align: left;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.slide-in {
+    animation-duration: 0.2s;
+    animation-name: slidein;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes slidein {
+    from {
+        right: 100%;
+    }
+
+    to {
+        right: 5%;
+    }
+}
+
+.slide-out {
+    animation-duration: 0.2s;
+    animation-name: slideout;
+}
+
+@keyframes slideout {
+    from {
+        right: 5%;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+#popover {
+    text-align: left;
+    background: #ff71ce;
+    color: #333;
+    position: absolute;
+    top: 0%;
+    bottom: 5%;
+    height: 95%;
+    width: 95%;
+    z-index: 5;
+    border-style: none solid solid dotted;
+    border-color: #05ffa1;
+    padding: 5px;
+    overflow-y: auto;
+}
+
+.ruleButton {
+    width: 100%;
+    border-style: none none solid none;
+    text-align: center;
+    vertical-align: bottom;
+    white-space: nowrap;
+    border-color: #05ffa1;
+    z-index: 7;
+}
+
+.unselectedButton {
+    background: #01cdfe;
+}
+
+.selectedButton {
+    background: #ff71ce;
+}
+
+.ruleButtonDiv {
+    display: flex;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    text-align: center;
+    background: #05ffa1;
+    z-index: 6;
+}
+
+#viewport {
+    background-color: #fffb96;
+    color: #333;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    background-attachment: fixed;
+    background-image: url("./jazz.png");
+    background-repeat: repeat-x;
+    background-size: auto auto;
+    overflow: auto;
+}
+
+@media (orientation: portrait) {
+    #viewport {
+        background-position: left 0px bottom -7em;
+    }
+}
+
+@media (orientation: landscape) {
+    #viewport {
+        background-position: left 0px bottom -11em;
+    }
+}
+
+.contentRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.AddPopover button,
+#bottomButtons button {
+    margin: 2px 5px 0 0;
+    background-color: #01cdfe;
+    border-style: solid;
+    border-color: #01cdfe;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.AddPopover .addInput {
+    background: #b967ff;
+    margin: 2px 5px 0 0;
+    width: 60%;
+    /*border-width: 0 0 2px;
+    border-color: #01cdfe;
+    box-shadow: none;
+    border-radius: 0px;*/
+}
+
+#AddRulesPopover label {
+    margin-right: 5px;
+}
+
+#AddRulesPopover form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#bottomButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#viewport-contents {
+    padding: 5px;
+    overflow-y: auto;
+}
+
+#tracery-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#tracery-contents {
+    width: 95%;
+    border: 2px solid #b967ff;
+    background: #05ffa1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+}
+
+h2 {
+    font-family: 'Limelight', serif;
 }
